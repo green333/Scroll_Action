@@ -7,17 +7,18 @@ using UnityEngine.UI;
 [System.Serializable]
 class RGB_Color
 {
-    public float red;      //赤色
+    public float red = 0.0f;      //赤色
 
-    public float green;    //緑色
+    public float green = 0.0f;    //緑色
 
-    public float blue;     //青色
+    public float blue = 0.0f;     //青色
 
-    public float alpha;    //不透明度
+    public float alpha = 0.0f;    //不透明度
 }
 
 
-public class TitleScene : Scene {
+public class TitleScene : BaseScene
+{
 
     [SerializeField]
     private Image title_logo;

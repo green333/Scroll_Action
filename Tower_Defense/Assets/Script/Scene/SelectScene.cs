@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SelectScene : Scene {
+public class SelectScene : BaseScene
+{
 
 	// Use this for initialization
 	void Start () {

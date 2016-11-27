@@ -5,10 +5,10 @@ using System.Collections;
 [System.Serializable]
 class Status
 {
-    public int hp;        //体力
-    public int attack;    //攻撃
-    public int defense;   //防御
-    public float spd;     //速度
+    public int hp = 0;        //体力
+    public int attack = 0;    //攻撃
+    public int defense = 0;   //防御
+    public float spd = 0.0f;     //速度
 }
 
 
@@ -22,6 +22,8 @@ public class Character : MonoBehaviour {
     {
         MOVE = 0,                 //操作する
         ATTACK,                   //攻撃する
+        DAMAGE,                   //ダメージ
+        DEAD,                     //死亡
     }
 
     [SerializeField]
@@ -35,8 +37,6 @@ public class Character : MonoBehaviour {
 
     [SerializeField]
     protected Animator animator;          //アニメーション
-
-
 
 
     //------------------------------------------
@@ -63,6 +63,14 @@ public class Character : MonoBehaviour {
                 break;
 
             case P_State.ATTACK:
+                Attack();
+                break;
+
+            case P_State.DAMAGE:
+                break;
+
+            case P_State.DEAD:
+                Dead();
                 break;
         }
 
@@ -80,6 +88,7 @@ public class Character : MonoBehaviour {
     }
 
 
+
     //------------------------------------------
 
     //  移動
@@ -87,17 +96,45 @@ public class Character : MonoBehaviour {
     //------------------------------------------
     public void Move()
     {
+
         rigidbody.velocity = new Vector2(info.spd, rigidbody.velocity.y);
     }
 
+    //------------------------------------------
 
+    //  攻撃
+
+    //------------------------------------------
+    void Attack()
+    {
+    }
+
+    //------------------------------------------
+
+    //  ダメージ
+
+    //------------------------------------------
+    void Damage()
+    {
+
+    }
+
+    //------------------------------------------
+
+    //  死亡
+
+    //------------------------------------------
+    void Dead()
+    {
+
+    }
 
     //------------------------------------------
 
     //  範囲内に入れば動かない
 
     //------------------------------------------
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
@@ -111,12 +148,15 @@ public class Character : MonoBehaviour {
     //  範囲外に行けば動く
 
     //------------------------------------------
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             p_state = P_State.MOVE;
         }
     }
+
+
+
 
 }

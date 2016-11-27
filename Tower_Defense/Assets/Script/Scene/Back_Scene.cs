@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Back_Scene : Scene {
+public class Back_Scene : BaseScene
+{
 
 	// Use this for initialization
 	void Start () {

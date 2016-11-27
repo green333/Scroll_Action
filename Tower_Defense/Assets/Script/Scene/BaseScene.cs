@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Scene : MonoBehaviour {
+public class BaseScene : MonoBehaviour {
 
     [SerializeField]
     protected string filename;
