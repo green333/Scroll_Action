@@ -2,29 +2,12 @@
 using System.Collections;
 
 
-[System.Serializable]
-class Status
-{
-    public int hp = 0;        //体力
-    public int attack = 0;    //攻撃
-    public int defense = 0;   //防御
-    public float spd = 0.0f;     //速度
-}
 
 
 
-public class Character : MonoBehaviour {
+public class Character : BaseCharacter {
 
-    //-----------------------
-    //  プレイヤーの状態
-    //-----------------------
-    protected enum P_State
-    {
-        MOVE = 0,                 //操作する
-        ATTACK,                   //攻撃する
-        DAMAGE,                   //ダメージ
-        DEAD,                     //死亡
-    }
+
 
     [SerializeField]
     private P_State p_state;
@@ -33,10 +16,8 @@ public class Character : MonoBehaviour {
     Status info;      //ステータス情報
 
     [SerializeField]
-    private new Rigidbody rigidbody;     //Rigidbody2D
+    private new Rigidbody rigidbody;     //Rigidbody
 
-    [SerializeField]
-    protected Animator animator;          //アニメーション
 
 
     //------------------------------------------
@@ -96,7 +77,6 @@ public class Character : MonoBehaviour {
     //------------------------------------------
     public void Move()
     {
-
         rigidbody.velocity = new Vector2(info.spd, rigidbody.velocity.y);
     }
 
@@ -107,6 +87,7 @@ public class Character : MonoBehaviour {
     //------------------------------------------
     void Attack()
     {
+        rigidbody.velocity = Vector3.zero;
     }
 
     //------------------------------------------
@@ -136,7 +117,7 @@ public class Character : MonoBehaviour {
     //------------------------------------------
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy_Home" || other.gameObject.tag == "Enemy") 
         {
             p_state = P_State.ATTACK;
         }

@@ -17,7 +17,9 @@ public class Cost_Gauge : MonoBehaviour {
     [SerializeField]
     private float possible_speed;     //使用可能になる時間
 
-    private bool button_tap = false;     //クリックしたとき
+
+    [SerializeField]
+    private GameObject home;
 
 
     enum B_State
@@ -85,7 +87,7 @@ public class Cost_Gauge : MonoBehaviour {
     {
         if (b_state == B_State.AVAILABLE)
         {
-            Instantiate(character, new Vector3(0, 1.5f, 0), Quaternion.identity);
+            Instantiate(character, new Vector3(home.transform.position.x, 0.5f, home.transform.position.z), Quaternion.identity);
             b_state = B_State.UNAVAILABLE;
         }
     }

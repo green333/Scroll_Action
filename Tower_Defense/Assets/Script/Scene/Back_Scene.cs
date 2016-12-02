@@ -18,9 +18,6 @@ public class Back_Scene : BaseScene
 
     public void OnClick()
     {
-        Char_Button.char_num = 0;
-        Char_Button.char_select = 0;
-
         ChangeScene(filename);
     }
 }

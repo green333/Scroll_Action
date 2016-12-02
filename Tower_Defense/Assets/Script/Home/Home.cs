@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Home : MonoBehaviour {
 
-    [SerializeField]
-    private GameObject[] players;
+    //[SerializeField]
+    //private GameObject[] players;
 
     enum Character      //キャラクター
     {
@@ -12,6 +12,8 @@ public class Home : MonoBehaviour {
         SPEED,          //スピード系
         JUMP,    
     }
+
+    
 
 
     //---------------------------------------
@@ -29,10 +31,10 @@ public class Home : MonoBehaviour {
 
     //---------------------------------------
     void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Create_Character();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Create_Character();
+        //}
 	}
 
 
@@ -44,6 +46,6 @@ public class Home : MonoBehaviour {
     //---------------------------------------
     void Create_Character()
     {
-        Instantiate(players[0], new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
+        //Instantiate(players[0], new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
     }
 }
