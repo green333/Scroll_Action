@@ -21,7 +21,7 @@ public class TitleScene : BaseScene
 {
 
     [SerializeField]
-    private Image title_logo;
+    private Image[] title_logo;
 
     [SerializeField]
     private RGB_Color color;
@@ -94,8 +94,9 @@ public class TitleScene : BaseScene
     //--------------------------
     void Title_Production()
     {
-
-        title_logo.color = new Color(color.red, color.green, color.blue, color.alpha);
+        for(int i = 0; i < title_logo.Length; i++) { 
+        title_logo[i].color = new Color(color.red, color.green, color.blue, color.alpha);
+        }
 
         color.alpha -= 0.01f;
         

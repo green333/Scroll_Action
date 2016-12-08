@@ -4,7 +4,6 @@ using System.Collections;
 
 
 
-
 public class Character : BaseCharacter {
 
 
@@ -18,7 +17,12 @@ public class Character : BaseCharacter {
     [SerializeField]
     private new Rigidbody rigidbody;     //Rigidbody
 
+    [SerializeField]
+    private NavMeshAgent agent;
 
+    //private Transform[] points;
+
+    private int now_point;
 
     //------------------------------------------
 
@@ -27,8 +31,12 @@ public class Character : BaseCharacter {
     //------------------------------------------
     void Start()
     {
-
+        //GameObject enemy_home = GameObject.Find("enemy_home");
+        //agent.destination = enemy_home.transform.position;
+        //agent.SetDestination(enemy_home.transform.position);
     }
+
+
 
     //------------------------------------------
 
@@ -77,7 +85,26 @@ public class Character : BaseCharacter {
     //------------------------------------------
     public void Move()
     {
-        rigidbody.velocity = new Vector2(info.spd, rigidbody.velocity.y);
+        if(agent.remainingDistance < 0.5f)
+        {
+            NextPoint();
+        }
+        //rigidbody.velocity = new Vector2(info.spd, rigidbody.velocity.y);
+    }
+
+
+    //------------------------------------------
+
+    //  次の目標ポイントへ移動
+
+    //------------------------------------------
+    void NextPoint()
+    {
+        GameObject points = GameObject.Find("Cube_" + now_point.ToString());
+
+        agent.SetDestination(points.transform.position);
+
+        now_point++;
     }
 
     //------------------------------------------

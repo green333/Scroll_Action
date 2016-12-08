@@ -21,6 +21,7 @@ public class Cost_Gauge : MonoBehaviour {
     [SerializeField]
     private GameObject home;
 
+    private bool click_stint;      //クリック制限
 
     enum B_State
     {
@@ -76,17 +77,18 @@ public class Cost_Gauge : MonoBehaviour {
 
         if(unpossible_image.fillAmount == 1)
         {
+            click_stint = false;
             b_state = B_State.AVAILABLE;
         }
-        
     }
 
 
 
     public void OnClick()
     {
-        if (b_state == B_State.AVAILABLE)
+        if (b_state == B_State.AVAILABLE && !click_stint)
         {
+            click_stint = true;
             Instantiate(character, new Vector3(home.transform.position.x, 0.5f, home.transform.position.z), Quaternion.identity);
             b_state = B_State.UNAVAILABLE;
         }

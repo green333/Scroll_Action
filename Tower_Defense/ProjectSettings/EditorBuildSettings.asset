@@ -10,4 +10,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/Stage_Select.unity
   - enabled: 1
-    path: Assets/Scene/Main.unity
+    path: Assets/Scene/Stage/Stage_1.unity
+  - enabled: 1
+    path: Assets/Scene/Stage/Stage_2.unity
+  - enabled: 1
+    path: Assets/Scene/Stage/Stage_3.unity
+  - enabled: 1
+    path: Assets/Scene/Stage/Stage_4.unity

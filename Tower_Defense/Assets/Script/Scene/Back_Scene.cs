@@ -11,8 +11,6 @@ public class Back_Scene : BaseScene
 	
 	// Update is called once per frame
 	void Update () {
-	
-
 
 	}
 
