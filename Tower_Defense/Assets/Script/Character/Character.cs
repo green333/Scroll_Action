@@ -85,6 +85,7 @@ public class Character : BaseCharacter {
     //------------------------------------------
     public void Move()
     {
+
         if(agent.remainingDistance < 0.5f)
         {
             NextPoint();

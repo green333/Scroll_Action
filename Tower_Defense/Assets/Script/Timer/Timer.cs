@@ -12,6 +12,17 @@ public class Timer : MonoBehaviour {
     [SerializeField]
     float timer_count;
 
+    void SetTimeCount(float time)
+    {
+        time = timer_count;
+    }
+
+    float GetTimeCount()
+    {
+        return timer_count;
+    }
+
+
     bool b_fin;
 
 	// Use this for initialization
